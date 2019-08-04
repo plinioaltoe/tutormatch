@@ -6,18 +6,13 @@ import Header from '~/components/Header'
 import Filter from '~/components/Filters'
 import ResponsiveGrid from '~/components/ResponsiveGrid'
 
-import { Creators as TutorActions } from '~/store/ducks/tutors'
+import TutorActions from '~/store/ducks/tutors'
 
 import { Container, Content, Linha } from './styles'
 
 class Tutorlist extends Component {
   static propTypes = {
-    getTutorsRequest: PropTypes.func.isRequired,
-  }
-
-  state = {
-    city: null,
-    sort: null,
+    getRequest: PropTypes.func.isRequired,
   }
 
   componentDidMount = () => {
@@ -25,8 +20,8 @@ class Tutorlist extends Component {
   }
 
   handleSearch = ({ city, sort, all }) => {
-    const { getTutorsRequest } = this.props
-    getTutorsRequest({
+    const { getRequest } = this.props
+    getRequest({
       city,
       sort,
       all,
@@ -47,12 +42,9 @@ class Tutorlist extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  console.log('state', state)
-  return {
-    tutors: state.tutors.data,
-  }
-}
+const mapStateToProps = state => ({
+  tutors: state.tutors.data,
+})
 
 const mapDispatchToProps = dispatch => bindActionCreators(TutorActions, dispatch)
 

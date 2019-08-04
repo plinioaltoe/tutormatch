@@ -3,7 +3,7 @@ import colors from './colors'
 
 // import 'rc-slider/assets/index.css'
 
-// import 'font-awesome/css/font-awesome.css'
+import 'font-awesome/css/font-awesome.css'
 
 const GlobalStyle = createGlobalStyle`
   * {

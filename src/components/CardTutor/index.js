@@ -19,7 +19,7 @@ const CardTutor = ({ tutor }) => {
   return (
     <Container>
       <ImgContainer>
-        <img src={photo} alt="tutor" />
+        <img src={photo} alt="tutor pic not found" />
       </ImgContainer>
       <GroupContainer>
         <Name>{name}</Name>
@@ -29,7 +29,7 @@ const CardTutor = ({ tutor }) => {
         <GroupStudents>
           {students.map(student => (
             <ImgStudent key={student.id}>
-              <img src={student.photo} alt="students" />
+              <img src={student.photo} alt="students pic not found" />
             </ImgStudent>
           ))}
         </GroupStudents>
@@ -39,20 +39,18 @@ const CardTutor = ({ tutor }) => {
 }
 
 CardTutor.propTypes = {
-  tutor: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number,
-      name: PropTypes.string,
-      city: PropTypes.string,
-      photo: PropTypes.string,
-      students: PropTypes.arrayOf(
-        PropTypes.shape({
-          id: PropTypes.string,
-          photo: PropTypes.string,
-        }),
-      ),
-    }),
-  ).isRequired,
+  tutor: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    city: PropTypes.string,
+    photo: PropTypes.string,
+    students: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string,
+        photo: PropTypes.string,
+      }),
+    ),
+  }).isRequired,
 }
 
 export default CardTutor

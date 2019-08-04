@@ -1,58 +1,43 @@
-/**
- * Types
- */
+import { createReducer, createActions } from 'reduxsauce'
+import Immutable from 'seamless-immutable'
 
-export const Types = {
-  GET_REQUEST: 'tutors/GET_REQUEST',
-  GET_SUCESS: 'tutors/GET_SUCESS',
-  GET_FAILURE: 'tutors/GET_FAILURE',
-}
+/* Types & Action Creators */
 
-/**
- * Reducers
- */
-const INITIAL_STATE = {
+const { Types, Creators } = createActions({
+  getRequest: ['filter'],
+  getSuccess: ['data', 'city', 'sort'],
+  getFailure: ['error'],
+})
+
+export const TutorsTypes = Types
+export default Creators
+
+/* Initial State */
+
+export const INITIAL_STATE = Immutable({
   data: [],
   loading: false,
-  error: null,
-  city: null,
-  sort: null,
-}
+  error: '',
+  city: '',
+  sort: '',
+})
 
-export default function tutors(state = INITIAL_STATE, action) {
-  switch (action.type) {
-    case Types.GET_REQUEST:
-      return { ...state, loading: true }
-    case Types.GET_SUCESS:
-      return {
-        ...state,
-        loading: false,
-        data: action.payload.data,
-        sort: action.payload.sort,
-        city: action.payload.city,
-      }
-    case Types.ADD_FAILURE:
-      return { ...state, loading: false, error: action.payload.error }
-    default:
-      return state
-  }
-}
+/* Reducers */
 
-/**
- * Actions
- */
-export const Creators = {
-  getTutorsRequest: ({ city, sort, all }) => ({
-    type: Types.GET_REQUEST,
-    payload: { city, sort, all },
-  }),
+// export const reducer = state =>
+//   state.merge({ data: [] });
 
-  getTutorsSuccess: ({ data, city, sort }) => ({
-    type: Types.GET_SUCESS,
-    payload: { data, city, sort },
+/* Reducers to types */
+
+export const reducer = createReducer(INITIAL_STATE, {
+  [Types.GET_REQUEST]: state => state.merge({
+    loading: true,
   }),
-  getTutorFailure: error => ({
-    type: Types.ADD_FAILURE,
-    payload: { error },
+  [Types.GET_SUCCESS]: (state, { data, city, sort }) => state.merge({
+    loading: false,
+    data,
+    sort: typeof sort === typeof null ? state.sort : sort,
+    city: typeof city === typeof null ? state.city : city,
   }),
-}
+  [Types.GET_FAILURE]: (state, { error }) => state.merge({ loading: false, error }),
+})

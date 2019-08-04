@@ -16,6 +16,8 @@ export const ImgContainer = styled.div`
   justify-content: center;
   border-top-left-radius: ${metrics.baseRadius}px;
   border-top-right-radius: ${metrics.baseRadius}px;
+  min-height: 280px;
+
   img {
     width: 250px;
     border-top-left-radius: ${metrics.baseRadius}px;

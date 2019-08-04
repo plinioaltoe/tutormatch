@@ -1,6 +1,6 @@
 import { all, takeLatest } from 'redux-saga/effects'
 
-import { Types as TutorsTypes } from '~/store/ducks/tutors'
+import { TutorsTypes } from '~/store/ducks/tutors'
 import { getTutors } from './tutors'
 
 export default function* rootSaga() {
