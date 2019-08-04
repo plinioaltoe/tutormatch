@@ -1,3 +1,7 @@
 import { combineReducers } from 'redux'
 
-export default combineReducers({})
+import tutors from './tutors'
+
+export default combineReducers({
+  tutors,
+})

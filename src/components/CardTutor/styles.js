@@ -10,13 +10,17 @@ export const Container = styled.div`
 `
 export const ImgContainer = styled.div`
   padding: ${metrics.basePadding * 3}px 0px 0 0;
-  background-color: ${colors.lighter};
   display: flex;
   align-items: center;
   width: -webkit-fill-available;
   justify-content: center;
   border-top-left-radius: ${metrics.baseRadius}px;
   border-top-right-radius: ${metrics.baseRadius}px;
+  img {
+    width: 250px;
+    border-top-left-radius: ${metrics.baseRadius}px;
+    border-top-right-radius: ${metrics.baseRadius}px;
+  }
 `
 
 export const GroupContainer = styled.div`
@@ -64,7 +68,10 @@ export const ImgStudent = styled.div`
   height: 32px;
   background: ${colors.lighter};
   border-radius: 50%;
+  min-width: 32px;
   img {
     border-radius: 50%;
+    width: 32px;
+    height: 32px;
   }
 `

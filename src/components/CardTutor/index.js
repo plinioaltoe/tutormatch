@@ -1,7 +1,5 @@
 import React from 'react'
-
-import Tutor from '~/assets/user-photo.svg'
-import Student from '~/assets/student-photo.svg'
+import PropTypes from 'prop-types'
 
 import {
   Container,
@@ -14,32 +12,47 @@ import {
   ImgStudent,
 } from './styles'
 
-const CardTutor = () => (
-  <Container>
-    <ImgContainer>
-      <img src={Tutor} alt="tutor" />
-    </ImgContainer>
-    <GroupContainer>
-      <Name>Jonh Issac</Name>
-      <Text>City</Text>
-      <Chip>Liverpool</Chip>
-      <Text>Stundents so far</Text>
-      <GroupStudents>
-        <ImgStudent>
-          <img src={Student} alt="students" />
-        </ImgStudent>
-        <ImgStudent>
-          <img src={Student} alt="students" />
-        </ImgStudent>
-        <ImgStudent>
-          <img src={Student} alt="students" />
-        </ImgStudent>
-        <ImgStudent>
-          <img src={Student} alt="students" />
-        </ImgStudent>
-      </GroupStudents>
-    </GroupContainer>
-  </Container>
-)
+const CardTutor = ({ tutor }) => {
+  const {
+    name, city, photo, students,
+  } = tutor
+  return (
+    <Container>
+      <ImgContainer>
+        <img src={photo} alt="tutor" />
+      </ImgContainer>
+      <GroupContainer>
+        <Name>{name}</Name>
+        <Text>City</Text>
+        <Chip>{city}</Chip>
+        <Text>Stundents so far</Text>
+        <GroupStudents>
+          {students.map(student => (
+            <ImgStudent key={student.id}>
+              <img src={student.photo} alt="students" />
+            </ImgStudent>
+          ))}
+        </GroupStudents>
+      </GroupContainer>
+    </Container>
+  )
+}
+
+CardTutor.propTypes = {
+  tutor: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      city: PropTypes.string,
+      photo: PropTypes.string,
+      students: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.string,
+          photo: PropTypes.string,
+        }),
+      ),
+    }),
+  ).isRequired,
+}
 
 export default CardTutor
