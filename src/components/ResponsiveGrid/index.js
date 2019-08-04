@@ -7,6 +7,7 @@ import { Container, Content } from './styles'
 import CardTutor from '~/components/CardTutor'
 import TutorActions from '~/store/ducks/tutors'
 
+
 const ResponsiveGrid = ({
   tutors, error, loading, getRequest, city, sort,
 }) => (
@@ -18,6 +19,7 @@ const ResponsiveGrid = ({
           && tutors.map(tutor => <CardTutor key={tutor.id} tutor={tutor} loading={loading} />)}
       </Content>
       <button
+        id="all"
         type="button"
         onClick={() => getRequest({ all: true, city, sort })}
         disabled={loading}

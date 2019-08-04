@@ -22,11 +22,6 @@ export const INITIAL_STATE = Immutable({
   sort: '',
 })
 
-/* Reducers */
-
-// export const reducer = state =>
-//   state.merge({ data: [] });
-
 /* Reducers to types */
 
 export const reducer = createReducer(INITIAL_STATE, {
