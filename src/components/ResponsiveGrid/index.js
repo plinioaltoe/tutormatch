@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 import PropTypes from 'prop-types'
 import { Container, Content } from './styles'
 import CardTutor from '~/components/CardTutor'
-import TutorActions from '~/store/ducks/tutors'
+import TutorsActions from '~/store/ducks/tutors'
 
 
 const ResponsiveGrid = ({
@@ -38,7 +38,7 @@ const mapStateToProps = state => ({
   sort: state.tutors.sort,
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators(TutorActions, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators(TutorsActions, dispatch)
 
 export default connect(
   mapStateToProps,
