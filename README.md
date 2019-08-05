@@ -5,10 +5,12 @@ Tutor list page/homepage. This is to assess my skills in HTML, CSS, Javascript a
 - To run:
 
 1. Install dependencies: `yarn` or `npm install`
-2. Start json server (https://jsonplaceholder.typicode.com/): `json-server server.js -p 3001 -w -d 500`
+2. Start json server (https://jsonplaceholder.typicode.com/): `json-server server.js -p 3001 -w -d 500` / \* if you using Windows, try: `npx json-server server.js -p 3001 -w -d 500`
 3. Run: `yarn start` or `npm start`
 
-- Denpendencies:
+- To test, try: `yarn test`
+
+* Denpendencies:
 
 "dependencies": {
 "axios": "^0.19.0",

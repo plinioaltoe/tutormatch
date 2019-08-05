@@ -19,7 +19,6 @@ export const SubTitle = styled.p`
   padding: 0 0 ${metrics.basePadding * 5}px 0;
 `
 export const Group = styled.div`
-  width: -webkit-fill-available;
   margin: 0 ${metrics.baseMargin}px;
   display: flex;
   align-items: center;

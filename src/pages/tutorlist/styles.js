@@ -8,7 +8,7 @@ export const Content = styled.div`
 `
 
 export const Linha = styled.hr`
-  margin: ${metrics.baseMargin}px 0;
+  margin: ${metrics.baseMargin}px ${metrics.baseMargin}px;
   border: 0;
   height: 0;
   border-top: 1px solid ${colors.darkTransparent};

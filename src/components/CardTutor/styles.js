@@ -6,7 +6,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: flex-start;
   width: 250px;
-  margin: 0px 0px 30px 0px;
+  margin: 0px ${metrics.baseMargin}px ${metrics.baseMargin}px ${metrics.baseMargin}px;
 `
 export const ImgContainer = styled.div`
   padding: ${metrics.basePadding * 3}px 0px 0 0;
@@ -30,6 +30,7 @@ export const GroupContainer = styled.div`
   width: -webkit-fill-available;
   border-bottom-left-radius: ${metrics.baseRadius}px;
   border-bottom-right-radius: ${metrics.baseRadius}px;
+  width: 100%;
 `
 
 export const Name = styled.div`

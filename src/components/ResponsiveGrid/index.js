@@ -7,11 +7,10 @@ import { Container, Content } from './styles'
 import CardTutor from '~/components/CardTutor'
 import TutorsActions from '~/store/ducks/tutors'
 
-
 const ResponsiveGrid = ({
   tutors, error, loading, getRequest, city, sort,
 }) => (
-  <Container>
+  <Container id="grid">
     {error && <p>{error}</p>}
     <Fragment>
       <Content>

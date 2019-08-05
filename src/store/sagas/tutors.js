@@ -8,7 +8,7 @@ export function* getTutors({ filter }) {
     let url = `/tutors?`
     url += city ? `&city=${city}` : ``
     url += sort ? `&_sort=${sort}&_order=asc` : ``
-    url += !all ? `&_page=1&_limit=10` : ``
+    url += !all ? `&_page=1&_limit=20` : ``
     const response = yield call(api.get, url)
     const { data } = response
     yield put(TutorsActions.getSuccess(data, city, sort))

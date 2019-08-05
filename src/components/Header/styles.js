@@ -15,6 +15,7 @@ export const FirstBar = styled.div`
   justify-content: space-between;
   width: -webkit-fill-available;
   padding: ${metrics.basePadding * 2}px;
+  width: 100%;
 `
 export const RigthContent = styled.div`
   display: flex;
