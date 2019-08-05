@@ -3,7 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import PropTypes from 'prop-types'
-import TutorActions from '~/store/ducks/tutors'
+import TutorsActions from '~/store/ducks/tutors'
 
 import {
   Container,
@@ -30,12 +30,13 @@ const Filters = ({
   <Container>
     <Title>Our Tutors</Title>
     <SubTitle>
-        We have more than 100 tutors from various disciplines ready to match with you.
+      We have more than 100 tutors from various disciplines ready to match with you.
     </SubTitle>
     <Group>
       <Text>Filter by:</Text>
       <ButtonGroup>
         <ButtonLeft
+          id="Liverpool"
           selected={city && city === 'Liverpool'}
           type="button"
           onClick={() => handleCity({
@@ -47,9 +48,10 @@ const Filters = ({
           }
           disabled={loading}
         >
-            Liverpool
+          Liverpool
         </ButtonLeft>
         <ButtonCenter
+          id="London"
           selected={city && city === 'London'}
           type="button"
           onClick={() => handleCity({
@@ -61,9 +63,10 @@ const Filters = ({
           }
           disabled={loading}
         >
-            London
+          London
         </ButtonCenter>
         <ButtonRight
+          id="Manchester"
           selected={city && city === 'Manchester'}
           type="button"
           onClick={() => handleCity({
@@ -75,26 +78,28 @@ const Filters = ({
           }
           disabled={loading}
         >
-            Manchester
+          Manchester
         </ButtonRight>
       </ButtonGroup>
       <Text>Sort by:</Text>
       <ButtonGroup>
         <ButtonLeft
+          id="name"
           selected={sort && sort === 'name'}
           type="button"
           onClick={() => getRequest({ sort: 'name', city })}
           disabled={loading}
         >
-            Name
+          Name
         </ButtonLeft>
         <ButtonRight
+          id="city"
           selected={sort && sort === 'city'}
           type="button"
           onClick={() => getRequest({ sort: 'city', city })}
           disabled={loading}
         >
-            City
+          City
         </ButtonRight>
       </ButtonGroup>
     </Group>
@@ -106,7 +111,7 @@ const mapStateToProps = state => ({
   sort: state.tutors.sort,
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators(TutorActions, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators(TutorsActions, dispatch)
 
 export default connect(
   mapStateToProps,

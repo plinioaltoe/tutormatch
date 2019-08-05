@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 import PropTypes from 'prop-types'
 import { Container, Content } from './styles'
 import CardTutor from '~/components/CardTutor'
-import TutorActions from '~/store/ducks/tutors'
+import TutorsActions from '~/store/ducks/tutors'
 
 const ResponsiveGrid = ({
   tutors, error, loading, getRequest, city, sort,
@@ -18,6 +18,7 @@ const ResponsiveGrid = ({
           && tutors.map(tutor => <CardTutor key={tutor.id} tutor={tutor} loading={loading} />)}
       </Content>
       <button
+        id="all"
         type="button"
         onClick={() => getRequest({ all: true, city, sort })}
         disabled={loading}
@@ -36,7 +37,7 @@ const mapStateToProps = state => ({
   sort: state.tutors.sort,
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators(TutorActions, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators(TutorsActions, dispatch)
 
 export default connect(
   mapStateToProps,
