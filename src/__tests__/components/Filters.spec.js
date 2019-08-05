@@ -3,13 +3,13 @@ import { mount } from 'enzyme'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import Filters from '~/components/Filters'
-import { INITIAL_STATE } from './initialState'
+import { STATE } from '~/__mocks__/mockedInitialState'
 
 import TutorsActions from '~/store/ducks/tutors'
 
 const middlewares = []
 const mockStore = configureStore(middlewares)
-const store = mockStore(INITIAL_STATE)
+const store = mockStore(STATE)
 
 const mockProps = {
   getRequest: jest.fn(),
